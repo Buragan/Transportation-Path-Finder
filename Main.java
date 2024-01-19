@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int count = 1;
         boolean flag = false;
-        String csvDosya = "C:\\Users\\excalıbur\\OneDrive\\Desktop\\Paris_RER_Metro.csv";
+        String csvDosya = "Paris_RER_Metro.csv";
         ArrayList<Metro> metroLines = new ArrayList<Metro>();
         DirectedGraph graph = new DirectedGraph();
         DirectedGraph metrograph = new DirectedGraph();
@@ -77,46 +77,6 @@ public class Main {
                 graph.addEdge(metroLines.get(i).getStation(j), metroLines.get(i).getStation(j + 1), Math.abs(metroLines.get(i).getStation(j + 1).getArrivalTime() - metroLines.get(i).getStation(j).getArrivalTime()), metroLines.get(i));
             }
         }
-        long startTimeMain = System.currentTimeMillis();
-        String test = "C:\\Users\\excalıbur\\OneDrive\\Desktop\\Test100.csv";
-        try (BufferedReader br = new BufferedReader(new FileReader(test))) {// read the file
-            String line;
-            int counters = 0;
-            while ((line = br.readLine()) != null) {
-
-                String[] parts = line.split(",");
-                String firststate = parts[0];
-                String secondstate = parts[1];
-                String choice = parts[2];
-                if(counters!=0)
-                    System.out.print(counters + ") ");
-
-                if(choice.equals("0")){
-
-                    graph.fewerStops(firststate, secondstate);
-
-
-                }
-                String a ="";
-                if(counters==53)
-                    a ="abc";
-                if(choice.equals("1")){
-
-                    graph.quickestPathFind(firststate, secondstate);
-                }
-
-                counters++;
-
-                System.out.println();
-                System.out.println();
-                System.out.println();
-            }
-
-
-        }
-        long endTimeMain = System.currentTimeMillis();
-        System.out.println(endTimeMain-startTimeMain);
-
         String firststate="";
         String  secondstate="";
         while (true) {
